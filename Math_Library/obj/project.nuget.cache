@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "XuAY+ZrARrr6rpuNGgtzV4vfpCIAeFRh85gTyLzRdbgf64yIdiIhZTqJXTjp7mdrTcd5f9Rge7/EFjDpcsPu2w==",
+  "dgSpecHash": "VxKCicZ3PfZ+IQ0yxtk2dNAdhC4uzxW7foYhNrZzK3gmO9wgdyysz4vsBEDPSvPr1hgMHnYBX1sm1pbWj5mH4A==",
   "success": true,
-  "projectFilePath": "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Вячеслав\\Documents\\GitHub\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Вячеслав\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.14\\microsoft.windowsdesktop.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Вячеслав\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.14\\microsoft.netcore.app.ref.7.0.14.nupkg.sha512",
+    "C:\\Users\\Вячеслав\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.14\\microsoft.aspnetcore.app.ref.7.0.14.nupkg.sha512"
+  ],
   "logs": []
 }
