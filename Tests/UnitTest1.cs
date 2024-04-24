@@ -9,7 +9,16 @@ namespace Tests
         [TestMethod]
         public void BaseSalary()
         {
-            Assert.ThrowsException<Exception>(() => { Formulas.Base_salary(-1, 1, 1)});
+            Assert.ThrowsException<Exception>(() => { 
+                Formulas.Base_salary(-1, 1, 1)
+            });
+        }
+        [TestMethod]
+        public void Sick_tax()
+        {
+            Assert.ThrowsException<Exception>(() => {
+                Formulas.Sick_tax(1, 1, 1, 1)
+            });
         }
     }
 }

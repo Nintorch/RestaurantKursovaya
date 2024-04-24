@@ -1,0 +1,4 @@
+G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.GeneratedMSBuildEditorConfig.editorconfig
+G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfoInputs.cache
+G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfo.cs
+G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.csproj.CoreCompileInputs.cache
