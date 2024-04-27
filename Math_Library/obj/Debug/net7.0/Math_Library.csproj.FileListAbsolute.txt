@@ -2,3 +2,15 @@ G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\
 G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfoInputs.cache
 G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfo.cs
 G:\Working files\GitHub_repositories\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.csproj.CoreCompileInputs.cache
+D:\RestaurantKursovaya\Math_Library\bin\Debug\net7.0\Math_Library.deps.json
+D:\RestaurantKursovaya\Math_Library\bin\Debug\net7.0\Math_Library.dll
+D:\RestaurantKursovaya\Math_Library\bin\Debug\net7.0\Math_Library.pdb
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.GeneratedMSBuildEditorConfig.editorconfig
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfoInputs.cache
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.AssemblyInfo.cs
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.csproj.CoreCompileInputs.cache
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.sourcelink.json
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.dll
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\refint\Math_Library.dll
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\Math_Library.pdb
+D:\RestaurantKursovaya\Math_Library\obj\Debug\net7.0\ref\Math_Library.dll

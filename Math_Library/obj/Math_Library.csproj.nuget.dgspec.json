@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj": {}
+    "D:\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj": {}
   },
   "projects": {
-    "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj": {
+    "D:\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
+        "projectUniqueName": "D:\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
         "projectName": "Math_Library",
-        "projectPath": "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
-        "packagesPath": "C:\\Users\\Sp060\\.nuget\\packages\\",
-        "outputPath": "G:\\Working files\\GitHub_repositories\\RestaurantKursovaya\\Math_Library\\obj\\",
+        "projectPath": "D:\\RestaurantKursovaya\\Math_Library\\Math_Library.csproj",
+        "packagesPath": "C:\\Users\\JustMe\\.nuget\\packages\\",
+        "outputPath": "D:\\RestaurantKursovaya\\Math_Library\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sp060\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\JustMe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -34,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -55,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }
