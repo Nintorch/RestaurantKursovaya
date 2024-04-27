@@ -57,9 +57,8 @@ namespace Math_Library
         }
 
 
-        // Сюда надо прередавать массив с премиями для отдельного сотрудника (Имею в виду все премии  для конкретного айди (просто у тебя это вроде легко сделлать)) 
-        //Назови пожалуйста поле с суммой премии value, или сам тут исправь а свое название
-        public static float Premiy(ICollection arr)
+        // Вместо IClass заведи пожалуйста интерфейс класса ентити фреймворк, а поле Value можешь исправить на поле с премиями
+        public static float Premiy(ICollection<IClass> arr)
         {
 
             float sum = 0;
@@ -75,9 +74,8 @@ namespace Math_Library
             }
             return sum;
         }
-        // Сюда надо прередавать массив со штрафами для отдельного сотрудника (Имею в виду все штрафы  для конкретного айди ) 
-        //Назови пожалуйста поле с суммой штрафа value, или сам тут исправь а свое название
-        public static float Taxes(ICollection arr)
+        // Вместо IClass заведи пожалуйста интерфейс класса ентити фреймворк
+        public static float Taxes(ICollection<IClass> arr)
         {
 
             float sum = 0;

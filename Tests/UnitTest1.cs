@@ -3,12 +3,20 @@ using System;
 
 namespace Tests
 {
+    public class TestClass
+    {
+        public TestClass(int val) {
+            this->Value = val;
+        }
+    }
     [TestClass]
     public class UnitTest1
     {
         [TestMethod]
         public void BaseSalary()
         {
+            TestClass a1 = new TestClass(1);
+
             Assert.ThrowsException<Exception>(() => { 
                 Formulas.Base_salary(-1, 1, 1)
             });
