@@ -135,17 +135,25 @@ namespace App.Data
                     .HasColumnType("smalldatetime")
                     .HasColumnName("Дата рождения");
 
-                entity.Property(e => e.Role).HasMaxLength(255);
+                entity.Property(e => e.Role)
+                    .HasMaxLength(255)
+                    .HasColumnName("Должность");
 
-                entity.Property(e => e.FirstName).HasMaxLength(255);
+                entity.Property(e => e.FirstName)
+                    .HasMaxLength(255)
+                    .HasColumnName("Имя");
 
                 entity.Property(e => e.WorkDaysPerWeek).HasColumnName("Количество рабочих дней в неделю");
 
                 entity.Property(e => e.WorkHoursPerDay).HasColumnName("Количество часов работы в день");
 
-                entity.Property(e => e.MiddleName).HasMaxLength(255);
+                entity.Property(e => e.MiddleName)
+                    .HasMaxLength(255)
+                    .HasColumnName("Отчество");
 
-                entity.Property(e => e.LastName).HasMaxLength(255);
+                entity.Property(e => e.LastName)
+                    .HasMaxLength(255)
+                    .HasColumnName("Фамилия");
             });
 
             modelBuilder.Entity<Fine>(entity =>

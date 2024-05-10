@@ -28,24 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
-            dataGridView1 = new DataGridView();
-            textBox1 = new TextBox();
+            DataGridView_Data = new DataGridView();
+            employeeBindingSource = new BindingSource(components);
+            TextBox_FilterLastName = new TextBox();
             groupBox1 = new GroupBox();
-            label2 = new Label();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
+            Button_Filter = new Button();
+            DateTimePicker_FilterBirthday = new DateTimePicker();
+            CheckBox_FilterBirthday = new CheckBox();
             label5 = new Label();
-            textBox4 = new TextBox();
-            checkBox1 = new CheckBox();
-            dateTimePicker1 = new DateTimePicker();
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            TextBox_FilterRole = new TextBox();
+            label4 = new Label();
+            TextBox_FilterMiddleName = new TextBox();
+            label3 = new Label();
+            TextBox_FilterFirstName = new TextBox();
+            label2 = new Label();
+            Button_AddEmployee = new Button();
+            Button_DeleteEmployee = new Button();
+            Button_Save = new Button();
+            id = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            middleNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            birthdayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            workHoursPerDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            workDaysPerWeekDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roleWorkStartDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            awardsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            overtimePeriodsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            finesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)DataGridView_Data).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,36 +75,43 @@
             label1.TabIndex = 2;
             label1.Text = "Список сотрудников ресторана";
             // 
-            // dataGridView1
+            // DataGridView_Data
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 40);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(532, 367);
-            dataGridView1.TabIndex = 3;
+            DataGridView_Data.AutoGenerateColumns = false;
+            DataGridView_Data.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridView_Data.Columns.AddRange(new DataGridViewColumn[] { id, lastNameDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, middleNameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, workHoursPerDayDataGridViewTextBoxColumn, workDaysPerWeekDataGridViewTextBoxColumn, roleWorkStartDateDataGridViewTextBoxColumn, baseSalaryPerHourInRublesDataGridViewTextBoxColumn, awardsDataGridViewTextBoxColumn, overtimePeriodsDataGridViewTextBoxColumn, finesDataGridViewTextBoxColumn });
+            DataGridView_Data.DataSource = employeeBindingSource;
+            DataGridView_Data.Location = new Point(12, 40);
+            DataGridView_Data.Name = "DataGridView_Data";
+            DataGridView_Data.RowHeadersWidth = 51;
+            DataGridView_Data.RowTemplate.Height = 29;
+            DataGridView_Data.Size = new Size(532, 367);
+            DataGridView_Data.TabIndex = 3;
             // 
-            // textBox1
+            // employeeBindingSource
             // 
-            textBox1.Location = new Point(6, 46);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(225, 27);
-            textBox1.TabIndex = 4;
+            employeeBindingSource.DataSource = typeof(Data.Employee);
+            // 
+            // TextBox_FilterLastName
+            // 
+            TextBox_FilterLastName.Location = new Point(6, 46);
+            TextBox_FilterLastName.Name = "TextBox_FilterLastName";
+            TextBox_FilterLastName.Size = new Size(225, 27);
+            TextBox_FilterLastName.TabIndex = 4;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(dateTimePicker1);
-            groupBox1.Controls.Add(checkBox1);
+            groupBox1.Controls.Add(Button_Filter);
+            groupBox1.Controls.Add(DateTimePicker_FilterBirthday);
+            groupBox1.Controls.Add(CheckBox_FilterBirthday);
             groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(textBox4);
+            groupBox1.Controls.Add(TextBox_FilterRole);
             groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(textBox3);
+            groupBox1.Controls.Add(TextBox_FilterMiddleName);
             groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(textBox2);
+            groupBox1.Controls.Add(TextBox_FilterFirstName);
             groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(TextBox_FilterLastName);
             groupBox1.Location = new Point(550, 40);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(238, 367);
@@ -96,46 +119,32 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Поиск сотрудников";
             // 
-            // label2
+            // Button_Filter
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(6, 23);
-            label2.Name = "label2";
-            label2.Size = new Size(76, 20);
-            label2.TabIndex = 5;
-            label2.Text = "Фамилия:";
+            Button_Filter.Location = new Point(6, 301);
+            Button_Filter.Name = "Button_Filter";
+            Button_Filter.Size = new Size(225, 29);
+            Button_Filter.TabIndex = 15;
+            Button_Filter.Text = "Найти";
+            Button_Filter.UseVisualStyleBackColor = true;
+            Button_Filter.Click += Button_Filter_Click;
             // 
-            // label3
+            // DateTimePicker_FilterBirthday
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(6, 76);
-            label3.Name = "label3";
-            label3.Size = new Size(42, 20);
-            label3.TabIndex = 7;
-            label3.Text = "Имя:";
+            DateTimePicker_FilterBirthday.Location = new Point(6, 268);
+            DateTimePicker_FilterBirthday.Name = "DateTimePicker_FilterBirthday";
+            DateTimePicker_FilterBirthday.Size = new Size(225, 27);
+            DateTimePicker_FilterBirthday.TabIndex = 14;
             // 
-            // textBox2
+            // CheckBox_FilterBirthday
             // 
-            textBox2.Location = new Point(6, 99);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(225, 27);
-            textBox2.TabIndex = 6;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(6, 129);
-            label4.Name = "label4";
-            label4.Size = new Size(75, 20);
-            label4.TabIndex = 9;
-            label4.Text = "Отчество:";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(6, 152);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(225, 27);
-            textBox3.TabIndex = 8;
+            CheckBox_FilterBirthday.AutoSize = true;
+            CheckBox_FilterBirthday.Location = new Point(6, 238);
+            CheckBox_FilterBirthday.Name = "CheckBox_FilterBirthday";
+            CheckBox_FilterBirthday.Size = new Size(141, 24);
+            CheckBox_FilterBirthday.TabIndex = 13;
+            CheckBox_FilterBirthday.Text = "Дата рождения:";
+            CheckBox_FilterBirthday.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -146,81 +155,207 @@
             label5.TabIndex = 11;
             label5.Text = "Должность:";
             // 
-            // textBox4
+            // TextBox_FilterRole
             // 
-            textBox4.Location = new Point(6, 205);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(225, 27);
-            textBox4.TabIndex = 10;
+            TextBox_FilterRole.Location = new Point(6, 205);
+            TextBox_FilterRole.Name = "TextBox_FilterRole";
+            TextBox_FilterRole.Size = new Size(225, 27);
+            TextBox_FilterRole.TabIndex = 10;
             // 
-            // checkBox1
+            // label4
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(6, 238);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(141, 24);
-            checkBox1.TabIndex = 13;
-            checkBox1.Text = "Дата рождения:";
-            checkBox1.UseVisualStyleBackColor = true;
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 129);
+            label4.Name = "label4";
+            label4.Size = new Size(75, 20);
+            label4.TabIndex = 9;
+            label4.Text = "Отчество:";
             // 
-            // dateTimePicker1
+            // TextBox_FilterMiddleName
             // 
-            dateTimePicker1.Location = new Point(6, 268);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(225, 27);
-            dateTimePicker1.TabIndex = 14;
+            TextBox_FilterMiddleName.Location = new Point(6, 152);
+            TextBox_FilterMiddleName.Name = "TextBox_FilterMiddleName";
+            TextBox_FilterMiddleName.Size = new Size(225, 27);
+            TextBox_FilterMiddleName.TabIndex = 8;
             // 
-            // button1
+            // label3
             // 
-            button1.Location = new Point(6, 301);
-            button1.Name = "button1";
-            button1.Size = new Size(225, 29);
-            button1.TabIndex = 15;
-            button1.Text = "Найти";
-            button1.UseVisualStyleBackColor = true;
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 76);
+            label3.Name = "label3";
+            label3.Size = new Size(42, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Имя:";
             // 
-            // button2
+            // TextBox_FilterFirstName
             // 
-            button2.Location = new Point(12, 413);
-            button2.Name = "button2";
-            button2.Size = new Size(225, 29);
-            button2.TabIndex = 16;
-            button2.Text = "Добавить нового сотрудника";
-            button2.UseVisualStyleBackColor = true;
+            TextBox_FilterFirstName.Location = new Point(6, 99);
+            TextBox_FilterFirstName.Name = "TextBox_FilterFirstName";
+            TextBox_FilterFirstName.Size = new Size(225, 27);
+            TextBox_FilterFirstName.TabIndex = 6;
             // 
-            // button3
+            // label2
             // 
-            button3.Location = new Point(243, 413);
-            button3.Name = "button3";
-            button3.Size = new Size(200, 29);
-            button3.TabIndex = 17;
-            button3.Text = "Удалить сотрудника";
-            button3.UseVisualStyleBackColor = true;
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 23);
+            label2.Name = "label2";
+            label2.Size = new Size(76, 20);
+            label2.TabIndex = 5;
+            label2.Text = "Фамилия:";
             // 
-            // button4
+            // Button_AddEmployee
             // 
-            button4.Location = new Point(449, 413);
-            button4.Name = "button4";
-            button4.Size = new Size(200, 29);
-            button4.TabIndex = 18;
-            button4.Text = "Сохранить изменения";
-            button4.UseVisualStyleBackColor = true;
+            Button_AddEmployee.Location = new Point(12, 413);
+            Button_AddEmployee.Name = "Button_AddEmployee";
+            Button_AddEmployee.Size = new Size(225, 29);
+            Button_AddEmployee.TabIndex = 16;
+            Button_AddEmployee.Text = "Добавить нового сотрудника";
+            Button_AddEmployee.UseVisualStyleBackColor = true;
+            // 
+            // Button_DeleteEmployee
+            // 
+            Button_DeleteEmployee.Location = new Point(243, 413);
+            Button_DeleteEmployee.Name = "Button_DeleteEmployee";
+            Button_DeleteEmployee.Size = new Size(200, 29);
+            Button_DeleteEmployee.TabIndex = 17;
+            Button_DeleteEmployee.Text = "Удалить сотрудника";
+            Button_DeleteEmployee.UseVisualStyleBackColor = true;
+            Button_DeleteEmployee.Click += Button_DeleteEmployee_Click;
+            // 
+            // Button_Save
+            // 
+            Button_Save.Location = new Point(449, 413);
+            Button_Save.Name = "Button_Save";
+            Button_Save.Size = new Size(200, 29);
+            Button_Save.TabIndex = 18;
+            Button_Save.Text = "Сохранить изменения";
+            Button_Save.UseVisualStyleBackColor = true;
+            Button_Save.Click += Button_Save_Click;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "ID";
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            id.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "Имя";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // middleNameDataGridViewTextBoxColumn
+            // 
+            middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
+            middleNameDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            middleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
+            middleNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // birthdayDataGridViewTextBoxColumn
+            // 
+            birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
+            birthdayDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            birthdayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
+            birthdayDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            roleDataGridViewTextBoxColumn.HeaderText = "Должность";
+            roleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            roleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // workHoursPerDayDataGridViewTextBoxColumn
+            // 
+            workHoursPerDayDataGridViewTextBoxColumn.DataPropertyName = "WorkHoursPerDay";
+            workHoursPerDayDataGridViewTextBoxColumn.HeaderText = "Количество часов работы в день";
+            workHoursPerDayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            workHoursPerDayDataGridViewTextBoxColumn.Name = "workHoursPerDayDataGridViewTextBoxColumn";
+            workHoursPerDayDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // workDaysPerWeekDataGridViewTextBoxColumn
+            // 
+            workDaysPerWeekDataGridViewTextBoxColumn.DataPropertyName = "WorkDaysPerWeek";
+            workDaysPerWeekDataGridViewTextBoxColumn.HeaderText = "Количество рабочих дней в неделю";
+            workDaysPerWeekDataGridViewTextBoxColumn.MinimumWidth = 6;
+            workDaysPerWeekDataGridViewTextBoxColumn.Name = "workDaysPerWeekDataGridViewTextBoxColumn";
+            workDaysPerWeekDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // roleWorkStartDateDataGridViewTextBoxColumn
+            // 
+            roleWorkStartDateDataGridViewTextBoxColumn.DataPropertyName = "RoleWorkStartDate";
+            roleWorkStartDateDataGridViewTextBoxColumn.HeaderText = "Время начала работы на этой должности";
+            roleWorkStartDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            roleWorkStartDateDataGridViewTextBoxColumn.Name = "roleWorkStartDateDataGridViewTextBoxColumn";
+            roleWorkStartDateDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // baseSalaryPerHourInRublesDataGridViewTextBoxColumn
+            // 
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.DataPropertyName = "BaseSalaryPerHourInRubles";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.HeaderText = "Базовая зарплата в рублях в час";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Name = "baseSalaryPerHourInRublesDataGridViewTextBoxColumn";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // awardsDataGridViewTextBoxColumn
+            // 
+            awardsDataGridViewTextBoxColumn.DataPropertyName = "Awards";
+            awardsDataGridViewTextBoxColumn.HeaderText = "Awards";
+            awardsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            awardsDataGridViewTextBoxColumn.Name = "awardsDataGridViewTextBoxColumn";
+            awardsDataGridViewTextBoxColumn.Visible = false;
+            awardsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // overtimePeriodsDataGridViewTextBoxColumn
+            // 
+            overtimePeriodsDataGridViewTextBoxColumn.DataPropertyName = "OvertimePeriods";
+            overtimePeriodsDataGridViewTextBoxColumn.HeaderText = "OvertimePeriods";
+            overtimePeriodsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            overtimePeriodsDataGridViewTextBoxColumn.Name = "overtimePeriodsDataGridViewTextBoxColumn";
+            overtimePeriodsDataGridViewTextBoxColumn.Visible = false;
+            overtimePeriodsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // finesDataGridViewTextBoxColumn
+            // 
+            finesDataGridViewTextBoxColumn.DataPropertyName = "Fines";
+            finesDataGridViewTextBoxColumn.HeaderText = "Fines";
+            finesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            finesDataGridViewTextBoxColumn.Name = "finesDataGridViewTextBoxColumn";
+            finesDataGridViewTextBoxColumn.Visible = false;
+            finesDataGridViewTextBoxColumn.Width = 125;
             // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(Button_Save);
+            Controls.Add(Button_DeleteEmployee);
+            Controls.Add(Button_AddEmployee);
             Controls.Add(groupBox1);
-            Controls.Add(dataGridView1);
+            Controls.Add(DataGridView_Data);
             Controls.Add(label1);
             Name = "MainMenuForm";
             Tag = "";
             Text = "Сотрудники ресторана - Список сотрудников";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridView_Data).EndInit();
+            ((System.ComponentModel.ISupportInitialize)employeeBindingSource).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -230,21 +365,35 @@
         #endregion
 
         private Label label1;
-        private DataGridView dataGridView1;
-        private TextBox textBox1;
+        private DataGridView DataGridView_Data;
+        private TextBox TextBox_FilterLastName;
         private GroupBox groupBox1;
-        private Button button1;
-        private DateTimePicker dateTimePicker1;
-        private CheckBox checkBox1;
+        private Button Button_Filter;
+        private DateTimePicker DateTimePicker_FilterBirthday;
+        private CheckBox CheckBox_FilterBirthday;
         private Label label5;
-        private TextBox textBox4;
+        private TextBox TextBox_FilterRole;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox TextBox_FilterMiddleName;
         private Label label3;
-        private TextBox textBox2;
+        private TextBox TextBox_FilterFirstName;
         private Label label2;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button Button_AddEmployee;
+        private Button Button_DeleteEmployee;
+        private Button Button_Save;
+        private BindingSource employeeBindingSource;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn middleNameDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn birthdayDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn roleDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn workHoursPerDayDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn workDaysPerWeekDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn roleWorkStartDateDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn baseSalaryPerHourInRublesDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn awardsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn overtimePeriodsDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn finesDataGridViewTextBoxColumn;
     }
 }
