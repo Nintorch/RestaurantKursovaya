@@ -7,6 +7,9 @@
     <Compile Update="AddEmployeeForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="AddOvertimePeriodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="AuthForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -14,6 +17,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MainMenuForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="OvertimePeriodsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace App
 {
-    public partial class AddAwardForm : Form
+    public partial class AddOvertimePeriodForm : Form
     {
         RestaurantContext context = new();
         Employee employee;
 
-        public AddAwardForm(Employee employee)
+        public AddOvertimePeriodForm(Employee employee)
         {
             InitializeComponent();
             this.employee = context.Employees.First(e => e.ID == employee.ID);
@@ -27,17 +27,16 @@ namespace App
         {
             try
             {
-                var award = new Award()
+                var overtimePeriod = new OvertimePeriod()
                 {
                     EmployeeID = employee.ID,
-                    AmountInRubles = DataCheck.CheckFormInt(TextBox_Amount.Text, "Сумма (в рублях)"),
-                    AwardDate = DateTimePicker_Date.Value,
-                    Reason = DataCheck.CheckForm(TextBox_Reason.Text, "Причина премии"),
+                    Date = DateTimePicker_Date.Value,
+                    OvertimeHoursCount = (short)DataCheck.CheckFormInt(TextBox_Amount.Text, "Количество часов"),
                 };
 
-                context.Awards.Add(award);
+                context.OvertimePeriods.Add(overtimePeriod);
                 context.SaveChanges();
-                MessageBox.Show($"Премия для сотрудника \"{employee.GetFullName()}\" была добавлена в базу данных!");
+                MessageBox.Show($"Сверхурочные часы для сотрудника \"{employee.GetFullName()}\" были добавлены в базу данных.");
                 Close();
             }
             catch (DataCheck.DataError ex)

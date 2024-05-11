@@ -99,6 +99,7 @@
             Button_TodayDate.TabIndex = 10;
             Button_TodayDate.Text = "Установить на сегодня";
             Button_TodayDate.UseVisualStyleBackColor = true;
+            Button_TodayDate.Click += Button_TodayDate_Click;
             // 
             // label4
             // 

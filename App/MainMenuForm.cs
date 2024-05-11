@@ -86,6 +86,11 @@ namespace App
                 case "AwardsButton":
                     new AwardsListForm(employee).ShowDialog();
                     break;
+
+                case "OvertimePeriodsButton":
+                    new OvertimePeriodsListForm(employee).ShowDialog();
+                    break;
+
                 case "DeleteButton":
                     var result = MessageBox.Show(
                         $"Вы уверены, что вы хотите удалить сотрудника \"{employee.GetFullName()}\" из базы данных?",

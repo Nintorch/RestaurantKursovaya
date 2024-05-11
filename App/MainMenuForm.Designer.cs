@@ -383,7 +383,7 @@
             CalculateSalaryButton.Name = "CalculateSalaryButton";
             CalculateSalaryButton.Text = "Посчитать зарплату";
             CalculateSalaryButton.UseColumnTextForButtonValue = true;
-            CalculateSalaryButton.Width = 125;
+            CalculateSalaryButton.Width = 150;
             // 
             // DeleteButton
             // 
