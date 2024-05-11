@@ -62,6 +62,7 @@ namespace App
         private void Button_Save_Click(object sender, EventArgs e)
         {
             context.SaveChanges();
+            MessageBox.Show("Изменения были успешно сохранены.");
         }
 
         private void Button_AddEmployee_Click(object sender, EventArgs e)
@@ -72,28 +73,33 @@ namespace App
 
         private void DataGridView_Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (DataGridView_Data.Columns[e.ColumnIndex].Name == "DeleteButton")
+            int id = (int)DataGridView_Data.Rows[e.RowIndex].Cells["id"].Value;
+
+            var employee = context.Employees
+                .Include(e => e.Awards)
+                .Include(e => e.OvertimePeriods)
+                .Include(e => e.Fines)
+                .First(e => e.ID == id);
+
+            switch (DataGridView_Data.Columns[e.ColumnIndex].Name)
             {
-                int id = (int)DataGridView_Data.Rows[e.RowIndex].Cells["id"].Value;
+                case "AwardsButton":
+                    new AwardsListForm(employee).ShowDialog();
+                    break;
+                case "DeleteButton":
+                    var result = MessageBox.Show(
+                        $"Вы уверены, что вы хотите удалить сотрудника \"{employee.GetFullName()}\" из базы данных?",
+                        "Требуется подтверждение",
+                        MessageBoxButtons.YesNoCancel);
 
-                var employee = context.Employees
-                    .Include(e => e.Awards)
-                    .Include(e => e.OvertimePeriods)
-                    .Include(e => e.Fines)
-                    .First(e => e.ID == id);
-
-                var result = MessageBox.Show(
-                    $"Вы уверены, что вы хотите удалить сотрудника \"{employee.GetFullName()}\" из базы данных?",
-                    "Требуется подтверждение",
-                    MessageBoxButtons.YesNoCancel);
-
-                if (result == DialogResult.Yes)
-                {
-                    employee.Delete();
-                    context.SaveChanges();
-                    MessageBox.Show($"Сотрудник \"{employee.GetFullName()}\" был успешно удалён из базы данных.");
-                    ReloadData();
-                }
+                    if (result == DialogResult.Yes)
+                    {
+                        employee.Delete();
+                        context.SaveChanges();
+                        MessageBox.Show($"Сотрудник \"{employee.GetFullName()}\" был успешно удалён из базы данных.");
+                        ReloadData();
+                    }
+                    break;
             }
         }
     }

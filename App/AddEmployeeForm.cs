@@ -26,15 +26,15 @@ namespace App
             {
                 var employee = new Employee()
                 {
-                    LastName = CheckForm(TextBox_LastName.Text, "Фамилия"),
-                    FirstName = CheckForm(TextBox_FirstName.Text, "Имя"),
-                    MiddleName = CheckForm(TextBox_MiddleName.Text, "Отчество"),
+                    LastName = DataCheck.CheckForm(TextBox_LastName.Text, "Фамилия"),
+                    FirstName = DataCheck.CheckForm(TextBox_FirstName.Text, "Имя"),
+                    MiddleName = DataCheck.CheckForm(TextBox_MiddleName.Text, "Отчество"),
                     Birthday = DateTimePicker_Birthday.Value,
-                    Role = CheckForm(TextBox_Role.Text, "Должность"),
-                    WorkHoursPerDay = CheckFormInt(TextBox_WorkHoursPerDay.Text, "Количество рабочих часов в день"),
-                    WorkDaysPerWeek = CheckFormInt(TextBox_WorkDaysPerWeek.Text, "Количество рабочих дней в неделю"),
+                    Role = DataCheck.CheckForm(TextBox_Role.Text, "Должность"),
+                    WorkHoursPerDay = DataCheck.CheckFormInt(TextBox_WorkHoursPerDay.Text, "Количество рабочих часов в день"),
+                    WorkDaysPerWeek = DataCheck.CheckFormInt(TextBox_WorkDaysPerWeek.Text, "Количество рабочих дней в неделю"),
                     RoleWorkStartDate = DateTimePicker_RoleWorkStart.Value,
-                    BaseSalaryPerHourInRubles = CheckFormInt(TextBox_BaseSalaryPerHour.Text, "Базовая зарплата (в рублях в час)"),
+                    BaseSalaryPerHourInRubles = DataCheck.CheckFormInt(TextBox_BaseSalaryPerHour.Text, "Базовая зарплата (в рублях в час)"),
                 };
 
                 context.Employees.Add(employee);
@@ -42,26 +42,10 @@ namespace App
                 MessageBox.Show($"Сотрудник \"{employee.GetFullName()}\" был добавлен в базу данных.");
                 Close();
             }
-            catch (Exception ex)
+            catch (DataCheck.DataError ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-
-        private string CheckForm(string text, string name)
-        {
-            if (text == "")
-                throw new Exception($"Поле \"{name}\" не может быть пустым.");
-            return text;
-        }
-
-        private int CheckFormInt(string text, string name)
-        {
-            if (text == "")
-                throw new Exception($"Поле \"{name}\" не может быть пустым.");
-            if (!int.TryParse(text, out int result))
-                throw new Exception($"Вы должны ввести число в поле \"{name}\".");
-            return result;
         }
     }
 }
