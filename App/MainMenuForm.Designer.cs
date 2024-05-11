@@ -31,6 +31,20 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             DataGridView_Data = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
+            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            middleNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            birthdayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            workHoursPerDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            workDaysPerWeekDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            roleWorkStartDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            awardsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            overtimePeriodsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            finesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            DeleteButton = new DataGridViewButtonColumn();
             employeeBindingSource = new BindingSource(components);
             TextBox_FilterLastName = new TextBox();
             groupBox1 = new GroupBox();
@@ -45,21 +59,7 @@
             TextBox_FilterFirstName = new TextBox();
             label2 = new Label();
             Button_AddEmployee = new Button();
-            Button_DeleteEmployee = new Button();
             Button_Save = new Button();
-            id = new DataGridViewTextBoxColumn();
-            lastNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            firstNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            middleNameDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            birthdayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roleDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            workHoursPerDayDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            workDaysPerWeekDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            roleWorkStartDateDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            awardsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            overtimePeriodsDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            finesDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)DataGridView_Data).BeginInit();
             ((System.ComponentModel.ISupportInitialize)employeeBindingSource).BeginInit();
             groupBox1.SuspendLayout();
@@ -77,9 +77,10 @@
             // 
             // DataGridView_Data
             // 
+            DataGridView_Data.AllowUserToAddRows = false;
             DataGridView_Data.AutoGenerateColumns = false;
             DataGridView_Data.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataGridView_Data.Columns.AddRange(new DataGridViewColumn[] { id, lastNameDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, middleNameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, workHoursPerDayDataGridViewTextBoxColumn, workDaysPerWeekDataGridViewTextBoxColumn, roleWorkStartDateDataGridViewTextBoxColumn, baseSalaryPerHourInRublesDataGridViewTextBoxColumn, awardsDataGridViewTextBoxColumn, overtimePeriodsDataGridViewTextBoxColumn, finesDataGridViewTextBoxColumn });
+            DataGridView_Data.Columns.AddRange(new DataGridViewColumn[] { id, lastNameDataGridViewTextBoxColumn, firstNameDataGridViewTextBoxColumn, middleNameDataGridViewTextBoxColumn, birthdayDataGridViewTextBoxColumn, roleDataGridViewTextBoxColumn, workHoursPerDayDataGridViewTextBoxColumn, workDaysPerWeekDataGridViewTextBoxColumn, roleWorkStartDateDataGridViewTextBoxColumn, baseSalaryPerHourInRublesDataGridViewTextBoxColumn, awardsDataGridViewTextBoxColumn, overtimePeriodsDataGridViewTextBoxColumn, finesDataGridViewTextBoxColumn, DeleteButton });
             DataGridView_Data.DataSource = employeeBindingSource;
             DataGridView_Data.Location = new Point(12, 40);
             DataGridView_Data.Name = "DataGridView_Data";
@@ -87,6 +88,124 @@
             DataGridView_Data.RowTemplate.Height = 29;
             DataGridView_Data.Size = new Size(532, 367);
             DataGridView_Data.TabIndex = 3;
+            DataGridView_Data.CellContentClick += DataGridView_Data_CellContentClick;
+            // 
+            // id
+            // 
+            id.DataPropertyName = "ID";
+            id.HeaderText = "ID";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.Visible = false;
+            id.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            lastNameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
+            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            firstNameDataGridViewTextBoxColumn.HeaderText = "Имя";
+            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // middleNameDataGridViewTextBoxColumn
+            // 
+            middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
+            middleNameDataGridViewTextBoxColumn.HeaderText = "Отчество";
+            middleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
+            middleNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // birthdayDataGridViewTextBoxColumn
+            // 
+            birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
+            birthdayDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
+            birthdayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
+            birthdayDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // roleDataGridViewTextBoxColumn
+            // 
+            roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
+            roleDataGridViewTextBoxColumn.HeaderText = "Должность";
+            roleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
+            roleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // workHoursPerDayDataGridViewTextBoxColumn
+            // 
+            workHoursPerDayDataGridViewTextBoxColumn.DataPropertyName = "WorkHoursPerDay";
+            workHoursPerDayDataGridViewTextBoxColumn.HeaderText = "Количество часов работы в день";
+            workHoursPerDayDataGridViewTextBoxColumn.MinimumWidth = 6;
+            workHoursPerDayDataGridViewTextBoxColumn.Name = "workHoursPerDayDataGridViewTextBoxColumn";
+            workHoursPerDayDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // workDaysPerWeekDataGridViewTextBoxColumn
+            // 
+            workDaysPerWeekDataGridViewTextBoxColumn.DataPropertyName = "WorkDaysPerWeek";
+            workDaysPerWeekDataGridViewTextBoxColumn.HeaderText = "Количество рабочих дней в неделю";
+            workDaysPerWeekDataGridViewTextBoxColumn.MinimumWidth = 6;
+            workDaysPerWeekDataGridViewTextBoxColumn.Name = "workDaysPerWeekDataGridViewTextBoxColumn";
+            workDaysPerWeekDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // roleWorkStartDateDataGridViewTextBoxColumn
+            // 
+            roleWorkStartDateDataGridViewTextBoxColumn.DataPropertyName = "RoleWorkStartDate";
+            roleWorkStartDateDataGridViewTextBoxColumn.HeaderText = "Время начала работы на этой должности";
+            roleWorkStartDateDataGridViewTextBoxColumn.MinimumWidth = 6;
+            roleWorkStartDateDataGridViewTextBoxColumn.Name = "roleWorkStartDateDataGridViewTextBoxColumn";
+            roleWorkStartDateDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // baseSalaryPerHourInRublesDataGridViewTextBoxColumn
+            // 
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.DataPropertyName = "BaseSalaryPerHourInRubles";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.HeaderText = "Базовая зарплата в рублях в час";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Name = "baseSalaryPerHourInRublesDataGridViewTextBoxColumn";
+            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // awardsDataGridViewTextBoxColumn
+            // 
+            awardsDataGridViewTextBoxColumn.DataPropertyName = "Awards";
+            awardsDataGridViewTextBoxColumn.HeaderText = "Awards";
+            awardsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            awardsDataGridViewTextBoxColumn.Name = "awardsDataGridViewTextBoxColumn";
+            awardsDataGridViewTextBoxColumn.Visible = false;
+            awardsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // overtimePeriodsDataGridViewTextBoxColumn
+            // 
+            overtimePeriodsDataGridViewTextBoxColumn.DataPropertyName = "OvertimePeriods";
+            overtimePeriodsDataGridViewTextBoxColumn.HeaderText = "OvertimePeriods";
+            overtimePeriodsDataGridViewTextBoxColumn.MinimumWidth = 6;
+            overtimePeriodsDataGridViewTextBoxColumn.Name = "overtimePeriodsDataGridViewTextBoxColumn";
+            overtimePeriodsDataGridViewTextBoxColumn.Visible = false;
+            overtimePeriodsDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // finesDataGridViewTextBoxColumn
+            // 
+            finesDataGridViewTextBoxColumn.DataPropertyName = "Fines";
+            finesDataGridViewTextBoxColumn.HeaderText = "Fines";
+            finesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            finesDataGridViewTextBoxColumn.Name = "finesDataGridViewTextBoxColumn";
+            finesDataGridViewTextBoxColumn.Visible = false;
+            finesDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // DeleteButton
+            // 
+            DeleteButton.HeaderText = "Удалить";
+            DeleteButton.MinimumWidth = 6;
+            DeleteButton.Name = "DeleteButton";
+            DeleteButton.Text = "Удалить";
+            DeleteButton.UseColumnTextForButtonValue = true;
+            DeleteButton.Width = 125;
             // 
             // employeeBindingSource
             // 
@@ -211,20 +330,11 @@
             Button_AddEmployee.TabIndex = 16;
             Button_AddEmployee.Text = "Добавить нового сотрудника";
             Button_AddEmployee.UseVisualStyleBackColor = true;
-            // 
-            // Button_DeleteEmployee
-            // 
-            Button_DeleteEmployee.Location = new Point(243, 413);
-            Button_DeleteEmployee.Name = "Button_DeleteEmployee";
-            Button_DeleteEmployee.Size = new Size(200, 29);
-            Button_DeleteEmployee.TabIndex = 17;
-            Button_DeleteEmployee.Text = "Удалить сотрудника";
-            Button_DeleteEmployee.UseVisualStyleBackColor = true;
-            Button_DeleteEmployee.Click += Button_DeleteEmployee_Click;
+            Button_AddEmployee.Click += Button_AddEmployee_Click;
             // 
             // Button_Save
             // 
-            Button_Save.Location = new Point(449, 413);
+            Button_Save.Location = new Point(243, 413);
             Button_Save.Name = "Button_Save";
             Button_Save.Size = new Size(200, 29);
             Button_Save.TabIndex = 18;
@@ -232,121 +342,12 @@
             Button_Save.UseVisualStyleBackColor = true;
             Button_Save.Click += Button_Save_Click;
             // 
-            // id
-            // 
-            id.DataPropertyName = "ID";
-            id.HeaderText = "ID";
-            id.MinimumWidth = 6;
-            id.Name = "id";
-            id.Visible = false;
-            id.Width = 125;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            lastNameDataGridViewTextBoxColumn.HeaderText = "Фамилия";
-            lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            lastNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            firstNameDataGridViewTextBoxColumn.HeaderText = "Имя";
-            firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            firstNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // middleNameDataGridViewTextBoxColumn
-            // 
-            middleNameDataGridViewTextBoxColumn.DataPropertyName = "MiddleName";
-            middleNameDataGridViewTextBoxColumn.HeaderText = "Отчество";
-            middleNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            middleNameDataGridViewTextBoxColumn.Name = "middleNameDataGridViewTextBoxColumn";
-            middleNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // birthdayDataGridViewTextBoxColumn
-            // 
-            birthdayDataGridViewTextBoxColumn.DataPropertyName = "Birthday";
-            birthdayDataGridViewTextBoxColumn.HeaderText = "Дата рождения";
-            birthdayDataGridViewTextBoxColumn.MinimumWidth = 6;
-            birthdayDataGridViewTextBoxColumn.Name = "birthdayDataGridViewTextBoxColumn";
-            birthdayDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // roleDataGridViewTextBoxColumn
-            // 
-            roleDataGridViewTextBoxColumn.DataPropertyName = "Role";
-            roleDataGridViewTextBoxColumn.HeaderText = "Должность";
-            roleDataGridViewTextBoxColumn.MinimumWidth = 6;
-            roleDataGridViewTextBoxColumn.Name = "roleDataGridViewTextBoxColumn";
-            roleDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // workHoursPerDayDataGridViewTextBoxColumn
-            // 
-            workHoursPerDayDataGridViewTextBoxColumn.DataPropertyName = "WorkHoursPerDay";
-            workHoursPerDayDataGridViewTextBoxColumn.HeaderText = "Количество часов работы в день";
-            workHoursPerDayDataGridViewTextBoxColumn.MinimumWidth = 6;
-            workHoursPerDayDataGridViewTextBoxColumn.Name = "workHoursPerDayDataGridViewTextBoxColumn";
-            workHoursPerDayDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // workDaysPerWeekDataGridViewTextBoxColumn
-            // 
-            workDaysPerWeekDataGridViewTextBoxColumn.DataPropertyName = "WorkDaysPerWeek";
-            workDaysPerWeekDataGridViewTextBoxColumn.HeaderText = "Количество рабочих дней в неделю";
-            workDaysPerWeekDataGridViewTextBoxColumn.MinimumWidth = 6;
-            workDaysPerWeekDataGridViewTextBoxColumn.Name = "workDaysPerWeekDataGridViewTextBoxColumn";
-            workDaysPerWeekDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // roleWorkStartDateDataGridViewTextBoxColumn
-            // 
-            roleWorkStartDateDataGridViewTextBoxColumn.DataPropertyName = "RoleWorkStartDate";
-            roleWorkStartDateDataGridViewTextBoxColumn.HeaderText = "Время начала работы на этой должности";
-            roleWorkStartDateDataGridViewTextBoxColumn.MinimumWidth = 6;
-            roleWorkStartDateDataGridViewTextBoxColumn.Name = "roleWorkStartDateDataGridViewTextBoxColumn";
-            roleWorkStartDateDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // baseSalaryPerHourInRublesDataGridViewTextBoxColumn
-            // 
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.DataPropertyName = "BaseSalaryPerHourInRubles";
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.HeaderText = "Базовая зарплата в рублях в час";
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Name = "baseSalaryPerHourInRublesDataGridViewTextBoxColumn";
-            baseSalaryPerHourInRublesDataGridViewTextBoxColumn.Width = 250;
-            // 
-            // awardsDataGridViewTextBoxColumn
-            // 
-            awardsDataGridViewTextBoxColumn.DataPropertyName = "Awards";
-            awardsDataGridViewTextBoxColumn.HeaderText = "Awards";
-            awardsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            awardsDataGridViewTextBoxColumn.Name = "awardsDataGridViewTextBoxColumn";
-            awardsDataGridViewTextBoxColumn.Visible = false;
-            awardsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // overtimePeriodsDataGridViewTextBoxColumn
-            // 
-            overtimePeriodsDataGridViewTextBoxColumn.DataPropertyName = "OvertimePeriods";
-            overtimePeriodsDataGridViewTextBoxColumn.HeaderText = "OvertimePeriods";
-            overtimePeriodsDataGridViewTextBoxColumn.MinimumWidth = 6;
-            overtimePeriodsDataGridViewTextBoxColumn.Name = "overtimePeriodsDataGridViewTextBoxColumn";
-            overtimePeriodsDataGridViewTextBoxColumn.Visible = false;
-            overtimePeriodsDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // finesDataGridViewTextBoxColumn
-            // 
-            finesDataGridViewTextBoxColumn.DataPropertyName = "Fines";
-            finesDataGridViewTextBoxColumn.HeaderText = "Fines";
-            finesDataGridViewTextBoxColumn.MinimumWidth = 6;
-            finesDataGridViewTextBoxColumn.Name = "finesDataGridViewTextBoxColumn";
-            finesDataGridViewTextBoxColumn.Visible = false;
-            finesDataGridViewTextBoxColumn.Width = 125;
-            // 
             // MainMenuForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(Button_Save);
-            Controls.Add(Button_DeleteEmployee);
             Controls.Add(Button_AddEmployee);
             Controls.Add(groupBox1);
             Controls.Add(DataGridView_Data);
@@ -379,7 +380,6 @@
         private TextBox TextBox_FilterFirstName;
         private Label label2;
         private Button Button_AddEmployee;
-        private Button Button_DeleteEmployee;
         private Button Button_Save;
         private BindingSource employeeBindingSource;
         private DataGridViewTextBoxColumn id;
@@ -395,5 +395,6 @@
         private DataGridViewTextBoxColumn awardsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn overtimePeriodsDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn finesDataGridViewTextBoxColumn;
+        private DataGridViewButtonColumn DeleteButton;
     }
 }

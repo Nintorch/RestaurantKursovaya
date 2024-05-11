@@ -1,4 +1,5 @@
 ﻿using App.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,6 +21,11 @@ namespace App
         {
             InitializeComponent();
 
+            ReloadData();
+        }
+
+        private void ReloadData()
+        {
             employeeBindingSource.DataSource = context.Employees.ToList();
         }
 
@@ -58,33 +64,37 @@ namespace App
             context.SaveChanges();
         }
 
-        private void Button_DeleteEmployee_Click(object sender, EventArgs e)
+        private void Button_AddEmployee_Click(object sender, EventArgs e)
         {
-            var rows = DataGridView_Data.SelectedRows;
-            if (rows.Count == 0)
-            {
-                MessageBox.Show("Не было выделено ни одной строки сотрудников.");
-                return;
-            }
+            new AddEmployeeForm().ShowDialog();
+            ReloadData();
+        }
 
-            int deletedCount = 0;
-
-            foreach (DataRow row in rows)
+        private void DataGridView_Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DataGridView_Data.Columns[e.ColumnIndex].Name == "DeleteButton")
             {
-                Employee employee = context.Employees.First(e => e.ID == (int)row[0]);
-                if (MessageBox.Show(
-                    $"Вы уверены, что вы хотите полностью удалить сотрудника \"{employee.GetFullName()}\"?",
+                int id = (int)DataGridView_Data.Rows[e.RowIndex].Cells["id"].Value;
+
+                var employee = context.Employees
+                    .Include(e => e.Awards)
+                    .Include(e => e.OvertimePeriods)
+                    .Include(e => e.Fines)
+                    .First(e => e.ID == id);
+
+                var result = MessageBox.Show(
+                    $"Вы уверены, что вы хотите удалить сотрудника \"{employee.GetFullName()}\" из базы данных?",
                     "Требуется подтверждение",
-                    MessageBoxButtons.YesNoCancel) == DialogResult.Yes)
+                    MessageBoxButtons.YesNoCancel);
+
+                if (result == DialogResult.Yes)
                 {
                     employee.Delete();
-                    deletedCount++;
+                    context.SaveChanges();
+                    MessageBox.Show($"Сотрудник \"{employee.GetFullName()}\" был успешно удалён из базы данных.");
+                    ReloadData();
                 }
             }
-
-            context.SaveChanges();
-
-            MessageBox.Show($"Был(и) удален(ы) {deletedCount} сотрудник(ов).");
         }
     }
 }

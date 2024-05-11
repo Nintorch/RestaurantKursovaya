@@ -109,7 +109,9 @@ namespace App.Data
 
                 entity.Property(e => e.EmployeeID).HasColumnName("ID");
 
-                entity.Property(e => e.Date).HasColumnType("smalldatetime");
+                entity.Property(e => e.Date)
+                    .HasColumnType("smalldatetime")
+                    .HasColumnName("Дата");
 
                 entity.Property(e => e.OvertimeHoursCount).HasColumnName("Количество сверхурочных часов");
 
@@ -175,6 +177,8 @@ namespace App.Data
                 entity.Property(e => e.Reason)
                     .HasMaxLength(255)
                     .HasColumnName("Причина получения");
+
+                entity.Property(e => e.Amount).HasColumnName("Сумма");
 
                 entity.HasOne(d => d.EmployeeNavigation)
                     .WithMany(p => p.Fines)

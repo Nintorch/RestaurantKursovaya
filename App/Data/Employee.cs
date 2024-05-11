@@ -27,12 +27,9 @@ namespace App.Data
         public virtual ICollection<OvertimePeriod> OvertimePeriods { get; set; }
         public virtual ICollection<Fine> Fines { get; set; }
 
-        public ICollection<SickPeriod> SickPeriods
-        {
-            get => new RestaurantContext().SickPeriods.Where(x => x.EmployeeID == ID).ToList();
-        }
+        public ICollection<SickPeriod> GetSickPeriods() => new RestaurantContext().SickPeriods.Where(x => x.EmployeeID == ID).ToList();
 
-        public string GetFullName() => string.Join(' ', new List<string> { LastName, FirstName, MiddleName }.Where(x => x != null));
+        public string GetFullName() => $"{LastName} {FirstName}" + (string.IsNullOrEmpty(MiddleName) ? "" : $" {MiddleName}");
 
         public void Delete()
         {
@@ -47,9 +44,10 @@ namespace App.Data
             foreach (var item in Fines)
                 context.Fines.Remove(item);
 
-            foreach (var item in SickPeriods)
+            foreach (var item in GetSickPeriods())
                 context.SickPeriods.Remove(item);
 
+            context.Employees.Remove(this);
             context.SaveChanges();
         }
     }
