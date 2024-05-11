@@ -16,6 +16,9 @@
     <Compile Update="AwardsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="CalculateSalaryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>

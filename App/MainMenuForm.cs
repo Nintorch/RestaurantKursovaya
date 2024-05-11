@@ -91,6 +91,10 @@ namespace App
                     new OvertimePeriodsListForm(employee).ShowDialog();
                     break;
 
+                case "CalculateSalaryButton":
+                    new CalculateSalaryForm(employee).ShowDialog();
+                    break;
+
                 case "DeleteButton":
                     var result = MessageBox.Show(
                         $"Вы уверены, что вы хотите удалить сотрудника \"{employee.GetFullName()}\" из базы данных?",

@@ -25,6 +25,18 @@ namespace App
             ReloadData();
         }
 
+        public AwardsListForm(Employee employee, DateTime filterStart, DateTime filterEnd)
+        {
+            InitializeComponent();
+            this.employee = employee;
+            Label_EmployeeName.Text = employee.GetFullName();
+
+            CheckBox_FilterDate.Checked = true;
+            DateTimePicker_FilterDateStart.Value = filterStart;
+            DateTimePicker_FilterDateEnd.Value = filterEnd;
+            FilterData();
+        }
+
         private void ReloadData()
         {
             employee = context.Employees
@@ -81,7 +93,7 @@ namespace App
             TextBox_FilterReason.Enabled = CheckBox_FilterReason.Checked;
         }
 
-        private void Button_Filter_Click(object sender, EventArgs e)
+        private void FilterData()
         {
             bool filterAmount = CheckBox_FilterAmount.Checked;
             int amountStart = 0, amountEnd = 0;
@@ -112,5 +124,7 @@ namespace App
                 return true;
             }).ToList();
         }
+
+        private void Button_Filter_Click(object sender, EventArgs e) => FilterData();
     }
 }
