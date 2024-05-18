@@ -25,4 +25,19 @@
     <ProjectReference Include="..\Math_Library\Math_Library.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="AddSickPeriodForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="AddFineForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SickPeriodsListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FinesListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

@@ -80,13 +80,12 @@ namespace App
 
             // Выводим количество больничных и снижение зарплаты за них за определенный год и месяц
 
-            var sickPeriods = employee.GetSickPeriods().Where(sp =>
-                (sp.DateStart >= monthStart && sp.DateStart <= monthEnd) || (sp.DateEnd >= monthStart && sp.DateEnd <= monthEnd)
-                ).ToList()
+            var sickPeriods = employee.GetSickPeriods().Where(sp => sp.ContainsOrTouches(monthStart, monthEnd)).ToList()
                 .Select(sp => AdjustSickPeriod(sp, monthStart, monthEnd)).ToList();
 
             float sickTax = Math_Library.Formulas.SickTax(mathEmployee, sickPeriods);
             Label_SickTax.Text = sickTax.ToString() + rubleChar;
+            Label_SickPeriodsCount.Text = sickPeriods.Select(sp => (sp.Finish - sp.Start).Days + 1).Sum().ToString();
 
             // Выводим общую зарплату за определенный год и месяц
 
@@ -117,5 +116,11 @@ namespace App
 
         private void Button_ShowOvertimeHours_Click(object sender, EventArgs e)
             => new OvertimePeriodsListForm(employee, monthStart, monthEnd).ShowDialog();
+
+        private void Button_ShowFines_Click(object sender, EventArgs e)
+            => new FinesListForm(employee, monthStart, monthEnd).ShowDialog();
+
+        private void Button_ShowSickPeriods_Click(object sender, EventArgs e)
+            => new SickPeriodsListForm(employee, monthStart, monthEnd).ShowDialog();
     }
 }

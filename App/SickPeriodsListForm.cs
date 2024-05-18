@@ -1,15 +1,14 @@
 ﻿using App.Data;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace App
 {
-    public partial class AwardsListForm : Form
+    public partial class SickPeriodsListForm : Form
     {
         RestaurantContext context = new();
         Employee employee;
 
-        public AwardsListForm(Employee employee)
+        public SickPeriodsListForm(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
@@ -17,7 +16,7 @@ namespace App
             ReloadData();
         }
 
-        public AwardsListForm(Employee employee, DateTime filterStart, DateTime filterEnd)
+        public SickPeriodsListForm(Employee employee, DateTime filterStart, DateTime filterEnd)
         {
             InitializeComponent();
             this.employee = employee;
@@ -31,34 +30,25 @@ namespace App
 
         private void ReloadData()
         {
-            employee = context.Employees
-                .Include(e => e.Awards)
-                .First(e => e.ID == employee.ID);
-            awardBindingSource.DataSource = employee.Awards.ToList();
-        }
-
-        private void Button_AddAward_Click(object sender, EventArgs e)
-        {
-            new AddAwardForm(employee).ShowDialog();
-            ReloadData();
+            sickPeriodBindingSource.DataSource = employee.GetSickPeriods().ToList();
         }
 
         private void DataGridView_Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = (int)DataGridView_Data.Rows[e.RowIndex].Cells["id"].Value;
-            Award award = context.Awards.First(x => x.ID == id);
+            SickPeriod sickPeriod = context.SickPeriods.First(sp => sp.ID == id);
 
             if (DataGridView_Data.Columns[e.ColumnIndex].Name == "DeleteButton")
             {
                 var result = MessageBox.Show(
-                    $"Вы уверены, что вы хотите удалить премию сотрудника \"{employee.GetFullName()}\"?",
+                    $"Вы уверены, что вы хотите удалить больничный период сотрудника \"{employee.GetFullName()}\"?",
                     "Требуется подтверждение",
                     MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
-                    context.Awards.Remove(award);
+                    context.SickPeriods.Remove(sickPeriod);
                     context.SaveChanges();
-                    MessageBox.Show("Премия была успешно удалена.");
+                    MessageBox.Show("Больничный период был успешно удалён.");
                     ReloadData();
                 }
             }
@@ -68,11 +58,6 @@ namespace App
         {
             context.SaveChanges();
             MessageBox.Show("Изменения были успешно сохранены!");
-        }
-
-        private void CheckBox_FilterAmount_CheckedChanged(object sender, EventArgs e)
-        {
-            GroupBox_FilterAmount.Enabled = CheckBox_FilterAmount.Checked;
         }
 
         private void CheckBox_FilterDate_CheckedChanged(object sender, EventArgs e)
@@ -87,19 +72,6 @@ namespace App
 
         private void FilterData()
         {
-            bool filterAmount = CheckBox_FilterAmount.Checked;
-            int amountStart = 0, amountEnd = 0;
-            if (filterAmount) try
-                {
-                    amountStart = DataCheck.CheckFormInt(TextBox_FilterAmountStart.Text, "Нижний предел суммы");
-                    amountEnd = DataCheck.CheckFormInt(TextBox_FilterAmountEnd.Text, "Верхний предел суммы");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return;
-                }
-
             bool filterDate = CheckBox_FilterDate.Checked;
             DateTime dateStart = DateTimePicker_FilterDateStart.Value;
             DateTime dateEnd = DateTimePicker_FilterDateEnd.Value;
@@ -108,20 +80,23 @@ namespace App
             string reason = TextBox_FilterReason.Text;
 
             employee = context.Employees
-                .Include(e => e.Awards)
                 .First(e => e.ID == employee.ID);
-            awardBindingSource.DataSource = employee.Awards.ToList().Where(a =>
+            sickPeriodBindingSource.DataSource = employee.GetSickPeriods().ToList().Where(sp =>
             {
-                if (filterAmount && (a.AmountInRubles < amountStart || a.AmountInRubles > amountEnd))
+                if (filterDate && !sp.ContainsOrTouches(dateStart, dateEnd))
                     return false;
-                if (filterDate && (a.AwardDate < dateStart || a.AwardDate > dateEnd))
-                    return false;
-                if (filterReason && !(a.Reason ?? "").Contains(reason, StringComparison.OrdinalIgnoreCase))
+                if (filterReason && !(sp.Reason ?? "").Contains(reason, StringComparison.OrdinalIgnoreCase))
                     return false;
                 return true;
             }).ToList();
         }
 
         private void Button_Filter_Click(object sender, EventArgs e) => FilterData();
+
+        private void Button_AddSickPeriod_Click(object sender, EventArgs e)
+        {
+            new AddSickPeriodForm(employee).ShowDialog();
+            ReloadData();
+        }
     }
 }

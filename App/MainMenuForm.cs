@@ -1,15 +1,6 @@
 ﻿using App.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Security;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace App
 {
@@ -89,6 +80,14 @@ namespace App
 
                 case "OvertimePeriodsButton":
                     new OvertimePeriodsListForm(employee).ShowDialog();
+                    break;
+
+                case "FinesButton":
+                    new FinesListForm(employee).ShowDialog();
+                    break;
+
+                case "SickPeriodsButton":
+                    new SickPeriodsListForm(employee).ShowDialog();
                     break;
 
                 case "CalculateSalaryButton":

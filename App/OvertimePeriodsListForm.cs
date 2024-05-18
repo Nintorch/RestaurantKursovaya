@@ -1,14 +1,6 @@
 ﻿using App.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace App
 {
@@ -65,11 +57,16 @@ namespace App
         {
             bool filterAmount = CheckBox_FilterAmount.Checked;
             int amountStart = 0, amountEnd = 0;
-            if (filterAmount)
-            {
-                amountStart = DataCheck.CheckFormInt(TextBox_FilterAmountStart.Text, "Нижний предел количества часов");
-                amountEnd = DataCheck.CheckFormInt(TextBox_FilterAmountEnd.Text, "Верхний предел количества часов");
-            }
+            if (filterAmount) try
+                {
+                    amountStart = DataCheck.CheckFormInt(TextBox_FilterAmountStart.Text, "Нижний предел количества часов");
+                    amountEnd = DataCheck.CheckFormInt(TextBox_FilterAmountEnd.Text, "Верхний предел количества часов");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
 
             bool filterDate = CheckBox_FilterDate.Checked;
             DateTime dateStart = DateTimePicker_FilterDateStart.Value;

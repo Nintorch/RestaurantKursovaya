@@ -10,5 +10,11 @@ namespace App.Data
         public DateTime? DateStart { get; set; }
         public DateTime? DateEnd { get; set; }
         public string? Reason { get; set; }
+
+        public bool ContainsOrTouches(DateTime dateStart, DateTime dateEnd) =>
+            (dateStart <= DateStart && dateEnd >= DateStart) || // Начало больничного входит в период 
+            (dateStart <= DateEnd && dateEnd >= DateEnd) ||     // Конец больничного входит в период
+            (dateStart >= DateStart && dateEnd <= DateEnd) ||   // Период входит в больничный период
+            (dateStart <= DateStart && dateEnd >= DateEnd);     // Больничный период входит в период
     }
 }

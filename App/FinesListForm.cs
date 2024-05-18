@@ -4,20 +4,21 @@ using System.Data;
 
 namespace App
 {
-    public partial class AwardsListForm : Form
+    public partial class FinesListForm : Form
     {
         RestaurantContext context = new();
         Employee employee;
 
-        public AwardsListForm(Employee employee)
+        public FinesListForm(Employee employee)
         {
             InitializeComponent();
             this.employee = employee;
+
             Label_EmployeeName.Text = employee.GetFullName();
             ReloadData();
         }
 
-        public AwardsListForm(Employee employee, DateTime filterStart, DateTime filterEnd)
+        public FinesListForm(Employee employee, DateTime filterStart, DateTime filterEnd)
         {
             InitializeComponent();
             this.employee = employee;
@@ -29,36 +30,35 @@ namespace App
             FilterData();
         }
 
+        public static string GetEmployeeTitle(Employee employee) => $"{employee.GetFullName()} - {employee.Role}";
+
         private void ReloadData()
         {
-            employee = context.Employees
-                .Include(e => e.Awards)
-                .First(e => e.ID == employee.ID);
-            awardBindingSource.DataSource = employee.Awards.ToList();
-        }
+            employeeListBindingSource.DataSource = context.Employees
+                .Select(x => new IdToTextMap(x.ID, GetEmployeeTitle(x))).ToList();
 
-        private void Button_AddAward_Click(object sender, EventArgs e)
-        {
-            new AddAwardForm(employee).ShowDialog();
-            ReloadData();
+            employee = context.Employees
+                .Include(e => e.Fines)
+                .First(e => e.ID == employee.ID);
+            fineBindingSource.DataSource = employee.Fines.ToList();
         }
 
         private void DataGridView_Data_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int id = (int)DataGridView_Data.Rows[e.RowIndex].Cells["id"].Value;
-            Award award = context.Awards.First(x => x.ID == id);
+            Fine fine = context.Fines.First(x => x.ID == id);
 
             if (DataGridView_Data.Columns[e.ColumnIndex].Name == "DeleteButton")
             {
                 var result = MessageBox.Show(
-                    $"Вы уверены, что вы хотите удалить премию сотрудника \"{employee.GetFullName()}\"?",
+                    $"Вы уверены, что вы хотите удалить штраф сотрудника \"{employee.GetFullName()}\"?",
                     "Требуется подтверждение",
                     MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
-                    context.Awards.Remove(award);
+                    context.Fines.Remove(fine);
                     context.SaveChanges();
-                    MessageBox.Show("Премия была успешно удалена.");
+                    MessageBox.Show("Штраф был успешно удалён.");
                     ReloadData();
                 }
             }
@@ -108,20 +108,26 @@ namespace App
             string reason = TextBox_FilterReason.Text;
 
             employee = context.Employees
-                .Include(e => e.Awards)
+                .Include(e => e.Fines)
                 .First(e => e.ID == employee.ID);
-            awardBindingSource.DataSource = employee.Awards.ToList().Where(a =>
+            fineBindingSource.DataSource = employee.Fines.ToList().Where(f =>
             {
-                if (filterAmount && (a.AmountInRubles < amountStart || a.AmountInRubles > amountEnd))
+                if (filterAmount && (f.Amount < amountStart || f.Amount > amountEnd))
                     return false;
-                if (filterDate && (a.AwardDate < dateStart || a.AwardDate > dateEnd))
+                if (filterDate && (f.Date < dateStart || f.Date > dateEnd))
                     return false;
-                if (filterReason && !(a.Reason ?? "").Contains(reason, StringComparison.OrdinalIgnoreCase))
+                if (filterReason && !(f.Reason ?? "").Contains(reason, StringComparison.OrdinalIgnoreCase))
                     return false;
                 return true;
             }).ToList();
         }
 
         private void Button_Filter_Click(object sender, EventArgs e) => FilterData();
+
+        private void Button_AddFine_Click(object sender, EventArgs e)
+        {
+            new AddFineForm(employee).ShowDialog();
+            ReloadData();
+        }
     }
 }

@@ -50,7 +50,7 @@ namespace App.Data
 
             modelBuilder.Entity<SickPeriod>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ID);
 
                 entity.ToTable("Больничные$");
 

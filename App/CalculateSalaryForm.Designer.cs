@@ -41,13 +41,13 @@
             label22 = new Label();
             Label_BaseSalary = new Label();
             label16 = new Label();
-            button4 = new Button();
-            button3 = new Button();
+            Button_ShowSickPeriods = new Button();
+            Button_ShowFines = new Button();
             Button_ShowOvertimeHours = new Button();
             Button_ShowAwards = new Button();
             Label_SickTax = new Label();
             label11 = new Label();
-            label13 = new Label();
+            Label_SickPeriodsCount = new Label();
             label14 = new Label();
             Label_FinesAmount = new Label();
             label10 = new Label();
@@ -160,13 +160,13 @@
             GroupBox_Results.Controls.Add(label22);
             GroupBox_Results.Controls.Add(Label_BaseSalary);
             GroupBox_Results.Controls.Add(label16);
-            GroupBox_Results.Controls.Add(button4);
-            GroupBox_Results.Controls.Add(button3);
+            GroupBox_Results.Controls.Add(Button_ShowSickPeriods);
+            GroupBox_Results.Controls.Add(Button_ShowFines);
             GroupBox_Results.Controls.Add(Button_ShowOvertimeHours);
             GroupBox_Results.Controls.Add(Button_ShowAwards);
             GroupBox_Results.Controls.Add(Label_SickTax);
             GroupBox_Results.Controls.Add(label11);
-            GroupBox_Results.Controls.Add(label13);
+            GroupBox_Results.Controls.Add(Label_SickPeriodsCount);
             GroupBox_Results.Controls.Add(label14);
             GroupBox_Results.Controls.Add(Label_FinesAmount);
             GroupBox_Results.Controls.Add(label10);
@@ -235,23 +235,25 @@
             label16.TabIndex = 22;
             label16.Text = "Базовая зарплата в месяц:";
             // 
-            // button4
+            // Button_ShowSickPeriods
             // 
-            button4.Location = new Point(353, 179);
-            button4.Name = "button4";
-            button4.Size = new Size(250, 29);
-            button4.TabIndex = 21;
-            button4.Text = "Просмотр больничных";
-            button4.UseVisualStyleBackColor = true;
+            Button_ShowSickPeriods.Location = new Point(353, 179);
+            Button_ShowSickPeriods.Name = "Button_ShowSickPeriods";
+            Button_ShowSickPeriods.Size = new Size(250, 29);
+            Button_ShowSickPeriods.TabIndex = 21;
+            Button_ShowSickPeriods.Text = "Просмотр больничных";
+            Button_ShowSickPeriods.UseVisualStyleBackColor = true;
+            Button_ShowSickPeriods.Click += Button_ShowSickPeriods_Click;
             // 
-            // button3
+            // Button_ShowFines
             // 
-            button3.Location = new Point(353, 139);
-            button3.Name = "button3";
-            button3.Size = new Size(250, 29);
-            button3.TabIndex = 20;
-            button3.Text = "Просмотр штрафов";
-            button3.UseVisualStyleBackColor = true;
+            Button_ShowFines.Location = new Point(353, 139);
+            Button_ShowFines.Name = "Button_ShowFines";
+            Button_ShowFines.Size = new Size(250, 29);
+            Button_ShowFines.TabIndex = 20;
+            Button_ShowFines.Text = "Просмотр штрафов";
+            Button_ShowFines.UseVisualStyleBackColor = true;
+            Button_ShowFines.Click += Button_ShowFines_Click;
             // 
             // Button_ShowOvertimeHours
             // 
@@ -291,14 +293,14 @@
             label11.TabIndex = 16;
             label11.Text = "Снижение за больничные:";
             // 
-            // label13
+            // Label_SickPeriodsCount
             // 
-            label13.AutoSize = true;
-            label13.Location = new Point(256, 183);
-            label13.Name = "label13";
-            label13.Size = new Size(17, 20);
-            label13.TabIndex = 15;
-            label13.Text = "0";
+            Label_SickPeriodsCount.AutoSize = true;
+            Label_SickPeriodsCount.Location = new Point(256, 183);
+            Label_SickPeriodsCount.Name = "Label_SickPeriodsCount";
+            Label_SickPeriodsCount.Size = new Size(17, 20);
+            Label_SickPeriodsCount.TabIndex = 15;
+            Label_SickPeriodsCount.Text = "0";
             // 
             // label14
             // 
@@ -604,12 +606,12 @@
         private Label label12;
         private Label Label_SickTax;
         private Label label11;
-        private Label label13;
+        private Label Label_SickPeriodsCount;
         private Label label14;
-        private Button button3;
+        private Button Button_ShowFines;
         private Button Button_ShowOvertimeHours;
         private Button Button_ShowAwards;
-        private Button button4;
+        private Button Button_ShowSickPeriods;
         private Button Button_Calculate;
         private Label Label_BaseSalary;
         private Label label16;
