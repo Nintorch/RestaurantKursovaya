@@ -12,6 +12,8 @@
             return employee.RublesPerHour * employee.WorkHoursPerDay * employee.WorkDaysPerWeek * 4;
         }
 
+        public static int SickPeriodLength(SickPeriod period) => (period.Finish - period.Start).Days + 1;
+
         // Сюда надо передавать дату начала и окончания болезни, кол-во рабочих часов в неделю, зарплату за час
         public static float SickTax(Employee employee, List<SickPeriod> periods)
         {
@@ -24,7 +26,7 @@
 
             foreach (SickPeriod period in periods)
             {
-                var dif = (period.Finish - period.Start).Days + 1;
+                var dif = SickPeriodLength(period);
                 var mis_hours = dif * employee.WorkHoursPerDay;
                 sum += mis_hours * employee.RublesPerHour - ((mis_hours * 19242) / (employee.WorkHoursPerDay * employee.WorkDaysPerWeek * 4));
             }

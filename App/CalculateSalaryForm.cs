@@ -96,9 +96,10 @@ namespace App
             MessageBox.Show($"Зарплата для сотрудника \"{employee.GetFullName()}\" была успешно рассчитана!");
         }
 
-        private Math_Library.SickPeriod AdjustSickPeriod(SickPeriod period, DateTime monthStart, DateTime monthEnd)
+        public static Math_Library.SickPeriod AdjustSickPeriod(SickPeriod period, DateTime monthStart, DateTime monthEnd)
         {
-            return new Math_Library.SickPeriod(
+            // Проверка на null через оператор ??, чтобы компилятор не ругался
+            return new(
                 period.DateStart < monthStart ? monthStart : period.DateStart ?? monthStart,
                 period.DateEnd > monthEnd ? monthEnd : period.DateEnd ?? monthEnd
                 );
