@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Math_Library;
+using System;
 using System.Collections.Generic;
 
 namespace App.Data
@@ -50,5 +51,12 @@ namespace App.Data
             context.Employees.Remove(this);
             context.SaveChanges();
         }
+
+        public Math_Library.Employee ToMathLibrary() => new()
+        {
+            RublesPerHour = BaseSalaryPerHourInRubles ?? 0,
+            WorkHoursPerDay = WorkHoursPerDay ?? 0,
+            WorkDaysPerWeek = WorkDaysPerWeek ?? 0,
+        };
     }
 }

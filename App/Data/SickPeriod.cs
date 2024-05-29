@@ -16,5 +16,7 @@ namespace App.Data
             (dateStart <= DateEnd && dateEnd >= DateEnd) ||     // Конец больничного входит в период
             (dateStart >= DateStart && dateEnd <= DateEnd) ||   // Период входит в больничный период
             (dateStart <= DateStart && dateEnd >= DateEnd);     // Больничный период входит в период
+
+        public Math_Library.SickPeriod ToMathLibrary() => new(DateStart ?? DateTime.Today, DateEnd ?? DateTime.Today);
     }
 }

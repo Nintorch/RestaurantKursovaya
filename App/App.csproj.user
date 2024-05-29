@@ -25,5 +25,8 @@
     <Compile Update="OvertimePeriodsListForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PrepareReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

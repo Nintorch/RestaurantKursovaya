@@ -110,5 +110,8 @@ namespace App
                     break;
             }
         }
+
+        private void Button_Report_Click(object sender, EventArgs e)
+            => new PrepareReportForm().ShowDialog();
     }
 }
