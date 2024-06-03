@@ -1,14 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace App.Data
 {
     public partial class RestaurantContext : DbContext
     {
+        private static readonly IConfiguration configuration = new ConfigurationBuilder()
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+            .Build();
+
         public RestaurantContext()
         {
+
         }
 
         public RestaurantContext(DbContextOptions<RestaurantContext> options)
@@ -27,7 +31,7 @@ namespace App.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=.\\;Database=Зарплаты;Trusted_Connection=True;TrustServerCertificate=true;");
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("RestaurantConnection") ?? "");
             }
         }
 
