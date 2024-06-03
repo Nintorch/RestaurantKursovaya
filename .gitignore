@@ -7,3 +7,4 @@ Tests/bin
 Tests/obj
 Tests1
 *.exe
+Documentation/documentation.log.txt

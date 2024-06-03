@@ -1,0 +1,33 @@
+
+[INFOTYPES]
+
+[OPTIONS]
+Auto Index=No
+Binary Index=Yes
+Binary TOC=No
+Compatibility=1.1 or later
+Compiled File=documentation.chm
+Contents File=documentation.hhc
+Index File=documentation.hhk
+Error log file=documentation.log.txt
+Full-text search=Yes
+Language=0x419 Russian
+Title=Title
+Default Topic=index.html
+Default Window=
+Default Font=Arial, 9, 204
+Create CHI file=No
+Full text search stop list file=
+Display compile notes=Yes
+Display compile progress=Yes
+
+[FILES]
+index.html
+Настройка приложения\Необходимое ПО.html
+Настройка приложения\Настройка SQL Server.html
+Настройка приложения\Настройка подключения к базе данных.html
+Использование приложения\Авторизация.html
+Использование приложения\Главное меню приложения.html
+Использование приложения\Добавление сотрудников в базу данных.html
+Использование приложения\Просмотр данных о сотруднике.html
+Изменение кода приложения.html

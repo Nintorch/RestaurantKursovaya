@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="KEL CHM Creator v.1.4.0.0">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+<OBJECT type="text/site properties">
+	<param name="ImageType" value="Book">
+	<param name="Window Styles" value="0x27">
+	<param name="ExWindow Styles" value="0x100">
+	<param name="comment" value="title:Online Help">
+	<param name="comment" value="base:index.htm">
+</OBJECT>
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Главная страница">
+		<param name="Local" value="index.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Настройка приложения">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Необходимое ПО">
+			<param name="Local" value="Настройка приложения\Необходимое ПО.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Настройка SQL Server">
+			<param name="Local" value="Настройка приложения\Настройка SQL Server.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Настройка подключения к базе данных">
+			<param name="Local" value="Настройка приложения\Настройка подключения к базе данных.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Использование приложения">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Авторизация">
+			<param name="Local" value="Использование приложения\Авторизация.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Главное меню приложения">
+			<param name="Local" value="Использование приложения\Главное меню приложения.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Добавление сотрудников в базу данных">
+			<param name="Local" value="Использование приложения\Добавление сотрудников в базу данных.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Просмотр данных о сотруднике">
+			<param name="Local" value="Использование приложения\Просмотр данных о сотруднике.html">
+			</OBJECT>
+	</UL>
+</UL>
+</BODY>
+</HTML>

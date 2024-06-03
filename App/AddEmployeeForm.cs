@@ -19,7 +19,7 @@ namespace App
                 {
                     LastName = DataCheck.CheckForm(TextBox_LastName.Text, "Фамилия"),
                     FirstName = DataCheck.CheckForm(TextBox_FirstName.Text, "Имя"),
-                    MiddleName = DataCheck.CheckForm(TextBox_MiddleName.Text, "Отчество"),
+                    MiddleName = TextBox_MiddleName.Text,
                     Birthday = DateTimePicker_Birthday.Value,
                     Role = DataCheck.CheckForm(TextBox_Role.Text, "Должность"),
                     WorkHoursPerDay = DataCheck.CheckFormInt(TextBox_WorkHoursPerDay.Text, "Количество рабочих часов в день"),
