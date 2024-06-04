@@ -130,7 +130,7 @@
             Controls.Add(ComboBox_Month);
             Controls.Add(label1);
             Name = "PrepareReportForm";
-            Text = "PrepareReportForm";
+            Text = "Сотрудники ресторана - Создание отчёта о зарплатах";
             ((System.ComponentModel.ISupportInitialize)NumericUpDown_Year).EndInit();
             ResumeLayout(false);
             PerformLayout();

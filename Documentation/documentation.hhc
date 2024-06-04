@@ -54,6 +54,23 @@
 			<param name="Name" value="Просмотр данных о сотруднике">
 			<param name="Local" value="Использование приложения\Просмотр данных о сотруднике.html">
 			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Расчёт зарплаты сотрудника">
+			<param name="Local" value="Использование приложения\Расчёт зарплаты сотрудника.html">
+			</OBJECT>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Вывод отчёта о зарплатах во внешний файл">
+			<param name="Local" value="Использование приложения\Вывод отчёта о зарплатах во внешний файл.html">
+			</OBJECT>
+	</UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Документация для IT отдела">
+		</OBJECT>
+	<UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Изменение кода приложения">
+			<param name="Local" value="Изменение кода приложения.html">
+			</OBJECT>
 	</UL>
 </UL>
 </BODY>

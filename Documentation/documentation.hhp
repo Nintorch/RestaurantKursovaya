@@ -12,7 +12,7 @@ Index File=documentation.hhk
 Error log file=documentation.log.txt
 Full-text search=Yes
 Language=0x419 Russian
-Title=Title
+Title=Документация по приложению для ресторана
 Default Topic=index.html
 Default Window=
 Default Font=Arial, 9, 204
@@ -30,4 +30,6 @@ index.html
 Использование приложения\Главное меню приложения.html
 Использование приложения\Добавление сотрудников в базу данных.html
 Использование приложения\Просмотр данных о сотруднике.html
+Использование приложения\Расчёт зарплаты сотрудника.html
+Использование приложения\Вывод отчёта о зарплатах во внешний файл.html
 Изменение кода приложения.html
