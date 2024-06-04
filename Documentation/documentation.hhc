@@ -69,8 +69,17 @@
 	<UL>
 		<LI> <OBJECT type="text/sitemap">
 			<param name="Name" value="Изменение кода приложения">
-			<param name="Local" value="Изменение кода приложения.html">
 			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Необходимое ПО">
+				<param name="Local" value="Документация для IT отдела\Изменение кода приложения\Необходимое ПО.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Изменение кода приложения">
+				<param name="Local" value="Документация для IT отдела\Изменение кода приложения\Изменение кода приложения.html">
+				</OBJECT>
+		</UL>
 	</UL>
 </UL>
 </BODY>
