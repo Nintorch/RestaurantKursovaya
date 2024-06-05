@@ -8,3 +8,5 @@ Tests/obj
 Tests1
 *.exe
 Documentation/documentation.log.txt
+AppSetup/Debug
+AppSetup/Release
