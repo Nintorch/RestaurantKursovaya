@@ -12,7 +12,13 @@
             return employee.RublesPerHour * employee.WorkHoursPerDay * employee.WorkDaysPerWeek * 4;
         }
 
-        public static int SickPeriodLength(SickPeriod period) => (period.Finish - period.Start).Days + 1;
+        public static int SickPeriodLength(SickPeriod period)
+        {
+            int result = (period.Finish - period.Start).Days + 1;
+            if (result <= 0)
+                throw new Exception("Длина больничного периода должна быть положительной.");
+            return result;
+        }
 
         // Сюда надо передавать дату начала и окончания болезни, кол-во рабочих часов в неделю, зарплату за час
         public static float SickTax(Employee employee, List<SickPeriod> periods)

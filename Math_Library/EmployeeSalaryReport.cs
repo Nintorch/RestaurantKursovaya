@@ -63,12 +63,14 @@
             SalaryResult = Formulas.Salary(employee, premiiSum, finesSum, sickPeriods, overtimeHours);
         }
 
-        public SickPeriod AdjustSickPeriod(SickPeriod period)
+        public SickPeriod AdjustSickPeriod(SickPeriod period) => AdjustSickPeriod(period, MonthStart, MonthEnd);
+
+        public static SickPeriod AdjustSickPeriod(SickPeriod period, DateTime monthStart, DateTime monthEnd)
         {
             // Проверка на null через оператор ??, чтобы компилятор не ругался
             return new(
-                period.Start < MonthStart ? MonthStart : period.Start,
-                period.Finish > MonthEnd ? MonthEnd : period.Finish
+                period.Start < monthStart ? monthStart : period.Start,
+                period.Finish > monthEnd ? monthEnd : period.Finish
                 );
         }
 

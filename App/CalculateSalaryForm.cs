@@ -1,4 +1,5 @@
 ﻿using App.Data;
+using App.Reports;
 using Microsoft.EntityFrameworkCore;
 
 namespace App
@@ -42,7 +43,7 @@ namespace App
             GroupBox_Results.Enabled = true;
             Label_Period.Text = $"{ComboBox_Month.Text} {NumericUpDown_Year.Value}";
 
-            var report = SalaryReport.GetEmployeeSalaryReport(
+            var report = ReportHelper.GetEmployeeSalaryReport(
                 employee, ComboBox_Month.SelectedIndex + 1, (int)NumericUpDown_Year.Value
                 );
             monthStart = report.MonthStart;
@@ -84,5 +85,8 @@ namespace App
 
         private void Button_ShowSickPeriods_Click(object sender, EventArgs e)
             => new SickPeriodsListForm(employee, monthStart, monthEnd).ShowDialog();
+
+        private void Button_CreateReport_Click(object sender, EventArgs e)
+            => ReportHelper.SaveReport(new EmployeeReport(employee, monthStart, monthEnd), "Отчёт о сотруднике");
     }
 }

@@ -1,15 +1,12 @@
-﻿
-using App.Data;
+﻿using App.Data;
 using Microsoft.EntityFrameworkCore;
 using OfficeOpenXml;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.Math;
-using OfficeOpenXml.FormulaParsing.Excel.Functions.RefAndLookup;
 using OfficeOpenXml.Style;
 using System.Globalization;
 
-namespace App
+namespace App.Reports
 {
-    public class SalaryReport
+    public class SalaryReport : IExcelReport
     {
         public struct Column
         {
@@ -19,7 +16,7 @@ namespace App
 
         static Column[] columns = {
             new() { Name = "ФИО", Getter = (e, r) => e.GetFullName() },
-            new() { Name = "День рождения", Getter = (e, r) => e.Birthday?.ToString().Split(' ')[0] },
+            new() { Name = "День рождения", Getter = (e, r) => e.Birthday },
             new() { Name = "Должность", Getter = (e, r) => e.Role },
             new() { Name = "Кол-во рабочих часов в день", Getter = (e, r) => e.WorkHoursPerDay },
             new() { Name = "Кол-во рабочих дней в неделю", Getter = (e, r) => e.WorkDaysPerWeek },
@@ -65,6 +62,7 @@ namespace App
             sheet.Cells[1, 1].Value = "Отчёт о зарплатах сотрудников в ресторане";
             sheet.Cells[2, 1].Value = $"Период: {CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(month)} {year}";
         }
+
         private static void SetStyle(Border border)
         {
             var style = ExcelBorderStyle.Thin;
@@ -98,7 +96,14 @@ namespace App
                 var info = GetEmployeeInfo(employees[i]);
                 for (int j = 0; j < columns.Length; j++)
                 {
+                    object? result = info[j];
                     sheet.Cells[i + 2 + rowOffset, j + 1].Value = info[j];
+
+                    if (result != null && result is DateTime)
+                    {
+                        sheet.Cells[i + 2 + rowOffset, j + 1].Style.Numberformat.Format =
+                            DateTimeFormatInfo.CurrentInfo.ShortDatePattern;
+                    }
                 }
             }
 
@@ -107,35 +112,10 @@ namespace App
 
         private object?[] GetEmployeeInfo(Employee e)
         {
-            var report = GetEmployeeSalaryReport(e, month, year);
+            var report = ReportHelper.GetEmployeeSalaryReport(e, month, year);
             return columns.Select(c => c.Getter(e, report)).ToArray();
         }
 
-        private byte[] Generate() => package.GetAsByteArray();
-
-        public void WriteToFile(string filename) => File.WriteAllBytes(filename, Generate());
-
-        public static Math_Library.EmployeeSalaryReport GetEmployeeSalaryReport(Employee e, int month, int year)
-        {
-            var period = Math_Library.EmployeeSalaryReport.GetMonthPeriod(month, year);
-            var (monthStart, monthEnd) = period;
-
-            Math_Library.EmployeeSalaryReport report = new(e.ToMathLibrary(), period,
-                e.Awards
-                    .Where(a => a.AwardDate >= monthStart && a.AwardDate <= monthEnd)
-                    .Select(a => a.AmountInRubles ?? 0).ToList(),
-                e.OvertimePeriods
-                    .Where(o => o.Date >= monthStart && o.Date <= monthEnd)
-                    .Select(o => (int)(o.OvertimeHoursCount ?? 0)).ToList(),
-                e.Fines
-                    .Where(f => f.Date >= monthStart && f.Date <= monthEnd)
-                    .Select(f => f.Amount ?? 0).ToList(),
-                e.GetSickPeriods()
-                    .Where(s => s.ContainsOrTouches(monthStart, monthEnd))
-                    .Select(s => s.ToMathLibrary())
-                    .ToList()
-                );
-            return report;
-        }
+        public void WriteToFile(string filename) => File.WriteAllBytes(filename, package.GetAsByteArray());
     }
 }

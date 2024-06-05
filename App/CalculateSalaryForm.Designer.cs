@@ -75,6 +75,7 @@
             label19 = new Label();
             label18 = new Label();
             label17 = new Label();
+            Button_CreateReport = new Button();
             GroupBox_FilterDate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericUpDown_Year).BeginInit();
             GroupBox_Results.SuspendLayout();
@@ -155,6 +156,7 @@
             // 
             // GroupBox_Results
             // 
+            GroupBox_Results.Controls.Add(Button_CreateReport);
             GroupBox_Results.Controls.Add(label15);
             GroupBox_Results.Controls.Add(Label_Period);
             GroupBox_Results.Controls.Add(label22);
@@ -556,6 +558,16 @@
             label17.TabIndex = 0;
             label17.Text = "Должность:";
             // 
+            // Button_CreateReport
+            // 
+            Button_CreateReport.Location = new Point(556, 251);
+            Button_CreateReport.Name = "Button_CreateReport";
+            Button_CreateReport.Size = new Size(250, 29);
+            Button_CreateReport.TabIndex = 27;
+            Button_CreateReport.Text = "Сохранить отчёт в файл Excel";
+            Button_CreateReport.UseVisualStyleBackColor = true;
+            Button_CreateReport.Click += Button_CreateReport_Click;
+            // 
             // CalculateSalaryForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -629,5 +641,6 @@
         private Label Label_Period;
         private Label label22;
         private Label label15;
+        private Button Button_CreateReport;
     }
 }

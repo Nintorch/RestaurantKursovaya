@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            SaveFileDialog_Report = new SaveFileDialog();
             label3 = new Label();
             NumericUpDown_Year = new NumericUpDown();
             label2 = new Label();
@@ -139,7 +138,6 @@
         #endregion
 
         private Label label1;
-        private SaveFileDialog SaveFileDialog_Report;
         private Label label3;
         private NumericUpDown NumericUpDown_Year;
         private Label label2;

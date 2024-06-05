@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Math_Library;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -55,6 +56,17 @@ namespace TestProject1
             DataSickPeriodTest(new DateTime(2024, 5, 5), new DateTime(2024, 5, 7), intendedResult: false);
         }
 
+        [TestMethod]
+        public void InvalidSickPeriod()
+        {
+            var sickPeriod = new Data.SickPeriod()
+            {
+                DateStart = new DateTime(2024, 5, 7),
+                DateEnd = new DateTime(2024, 5, 5),
+            };
+            Assert.ThrowsException<Exception>(() => Formulas.SickPeriodLength(sickPeriod.ToMathLibrary()));
+        }
+
         private void AdjustSickPeriodTest(DateTime dateStart, DateTime dateEnd, int dayCount)
         {
             // Такие периоды хранятся в базе данных
@@ -64,9 +76,9 @@ namespace TestProject1
                 DateEnd = dateEnd,
             };
             // Подправляем период под длину месяца
-            var adjustedSickPeriod = App.CalculateSalaryForm.AdjustSickPeriod(sickPeriod, monthStart, monthEnd);
+            var adjustedSickPeriod = EmployeeSalaryReport.AdjustSickPeriod(sickPeriod.ToMathLibrary(), monthStart, monthEnd);
             // Находим длину полученного периода
-            var dif = Math.Formulas.SickPeriodLength(adjustedSickPeriod);
+            var dif = Formulas.SickPeriodLength(adjustedSickPeriod);
 
             Assert.AreEqual(dayCount, dif);
         }
