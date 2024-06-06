@@ -21,7 +21,37 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_562E090522EE4147A3BEA01820811CE0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A1AD2779D0C74923AE20D43A9C30D6AF"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B42434C6C1604862A1CD988AD4AB8055"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CDC7B0E0135D4324BDED650406BAB87A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CFA3AA4CD14D492384E28DDB50C7D54A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EBD367321FB64158AB506143CDC9764E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +73,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -59,6 +105,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -90,10 +144,90 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A1AD2779D0C74923AE20D43A9C30D6AF"
+            {
+            "SourcePath" = "8:..\\App\\bin\\Debug\\net6.0-windows\\App.deps.json"
+            "TargetName" = "8:App.deps.json"
+            "Tag" = "8:"
+            "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B42434C6C1604862A1CD988AD4AB8055"
             {
             "SourcePath" = "8:note_order_icon_263228.ico"
             "TargetName" = "8:note_order_icon_263228.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CDC7B0E0135D4324BDED650406BAB87A"
+            {
+            "SourcePath" = "8:..\\Database\\Зарплаты (05_06_2024)"
+            "TargetName" = "8:Бэкап базы данных"
+            "Tag" = "8:"
+            "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CFA3AA4CD14D492384E28DDB50C7D54A"
+            {
+            "SourcePath" = "8:..\\App\\bin\\Debug\\net6.0-windows\\appsettings.json"
+            "TargetName" = "8:appsettings.json"
+            "Tag" = "8:"
+            "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EBD367321FB64158AB506143CDC9764E"
+            {
+            "SourcePath" = "8:..\\Documentation\\documentation.chm"
+            "TargetName" = "8:documentation.chm"
             "Tag" = "8:"
             "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
             "Condition" = "8:"
@@ -167,7 +301,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Управление рестораном"
         "ProductCode" = "8:{BC77B5D2-6D6C-4A94-B24C-EEB35A0E4740}"
-        "PackageCode" = "8:{5F3C2DB5-77C5-4D9F-AA71-0596BE2B68D2}"
+        "PackageCode" = "8:{9BB53B6F-C94B-44FB-AB4E-A73DAF32285A}"
         "UpgradeCode" = "8:{39FE9595-ADD7-4302-A88D-317D4488A7FA}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -287,6 +421,20 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_110213E5B6274BB8AE995E76A0DD1645"
+            {
+            "Name" = "8:Документация к управлению рестораном"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_EBD367321FB64158AB506143CDC9764E"
+            "Folder" = "8:_752AB2ED49974DADA9A81659228230AE"
+            "WorkingFolder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Icon" = "8:"
+            "Feature" = "8:"
+            }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_4A9620981ABF47D788559F0B4548B1F8"
             {
             "Name" = "8:Управление рестораном"
@@ -298,7 +446,7 @@
             "Target" = "8:_0056A906645C4875BA6AB7B4BB0E8FB8"
             "Folder" = "8:_2A6F81052E4241D584AF8F722156D585"
             "WorkingFolder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
-            "Icon" = "8:"
+            "Icon" = "8:_B42434C6C1604862A1CD988AD4AB8055"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_5DA9D3B407184098BEE7C839969ED636"
@@ -737,6 +885,34 @@
             "OutputConfiguration" = "8:"
             "OutputGroupCanonicalName" = "8:PublishItems"
             "OutputProjectGuid" = "8:{0397EB21-3F32-4632-AADB-DD8531CE51F8}"
+            "ShowKeyOutput" = "11:TRUE"
+                "ExcludeFilters"
+                {
+                }
+            }
+            "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_562E090522EE4147A3BEA01820811CE0"
+            {
+            "SourcePath" = "8:..\\PasswordHasher\\obj\\Debug\\net6.0-windows\\apphost.exe"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_8EE9441782E94E1D8FED5D4CDB633E71"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            "ProjectOutputGroupRegister" = "3:1"
+            "OutputConfiguration" = "8:"
+            "OutputGroupCanonicalName" = "8:PublishItems"
+            "OutputProjectGuid" = "8:{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}"
             "ShowKeyOutput" = "11:TRUE"
                 "ExcludeFilters"
                 {

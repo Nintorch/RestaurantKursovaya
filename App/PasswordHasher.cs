@@ -2,7 +2,7 @@
 
 namespace App
 {
-    internal static class PasswordHasher
+    public static class PasswordHasher
     {
         private const int _saltSize = 16; // 128 bits
         private const int _keySize = 32; // 256 bits

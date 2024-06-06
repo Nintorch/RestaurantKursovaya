@@ -1,4 +1,5 @@
 ﻿using App.Data;
+using System.Diagnostics;
 
 namespace App
 {
@@ -30,5 +31,8 @@ namespace App
             form.Show();
             form.FormClosed += (s, args) => Close();
         }
+
+        private void Button_AppFolder_Click(object sender, EventArgs e)
+            => Process.Start("explorer.exe", Path.GetDirectoryName(Environment.ProcessPath) ?? "");
     }
 }

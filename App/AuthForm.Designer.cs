@@ -35,6 +35,7 @@
             label4 = new Label();
             TextBox_Password = new TextBox();
             Button_Login = new Button();
+            Button_AppFolder = new Button();
             SuspendLayout();
             // 
             // TextBox_Login
@@ -91,7 +92,7 @@
             // 
             // Button_Login
             // 
-            Button_Login.Location = new Point(198, 230);
+            Button_Login.Location = new Point(207, 234);
             Button_Login.Name = "Button_Login";
             Button_Login.Size = new Size(94, 29);
             Button_Login.TabIndex = 6;
@@ -99,11 +100,22 @@
             Button_Login.UseVisualStyleBackColor = true;
             Button_Login.Click += Button_Login_Click;
             // 
+            // Button_AppFolder
+            // 
+            Button_AppFolder.Location = new Point(128, 269);
+            Button_AppFolder.Name = "Button_AppFolder";
+            Button_AppFolder.Size = new Size(250, 29);
+            Button_AppFolder.TabIndex = 7;
+            Button_AppFolder.Text = "Открыть папку с приложением";
+            Button_AppFolder.UseVisualStyleBackColor = true;
+            Button_AppFolder.Click += Button_AppFolder_Click;
+            // 
             // AuthForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(511, 285);
+            ClientSize = new Size(511, 310);
+            Controls.Add(Button_AppFolder);
             Controls.Add(Button_Login);
             Controls.Add(TextBox_Password);
             Controls.Add(label4);
@@ -126,5 +138,6 @@
         private Label label4;
         private TextBox TextBox_Password;
         private Button Button_Login;
+        private Button Button_AppFolder;
     }
 }

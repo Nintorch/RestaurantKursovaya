@@ -10,3 +10,5 @@ Tests1
 Documentation/documentation.log.txt
 AppSetup/Debug
 AppSetup/Release
+PasswordHasher/bin
+PasswordHasher/obj

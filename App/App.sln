@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "..\Tests\Te
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "AppSetup", "..\AppSetup\AppSetup.vdproj", "{35FEA3AA-3D1A-451E-91C6-8C55B77CE01A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PasswordHasher", "..\PasswordHasher\PasswordHasher.csproj", "{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{B9820B96-22BA-4D6E-AD39-66481BC6129A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{35FEA3AA-3D1A-451E-91C6-8C55B77CE01A}.Debug|Any CPU.ActiveCfg = Debug
 		{35FEA3AA-3D1A-451E-91C6-8C55B77CE01A}.Release|Any CPU.ActiveCfg = Release
+		{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A05FD2-C73F-4EA1-A6AC-44A20A31FDA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

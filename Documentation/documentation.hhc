@@ -80,6 +80,23 @@
 				<param name="Local" value="Документация для IT отдела\Изменение кода приложения\Изменение кода приложения.html">
 				</OBJECT>
 		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Подготовка сервера">
+			</OBJECT>
+		<UL>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Необходимое ПО">
+				<param name="Local" value="Документация для IT отдела\Подготовка сервера\Необходимое ПО.html">
+				</OBJECT>
+			<LI> <OBJECT type="text/sitemap">
+				<param name="Name" value="Настройка подключения к базе данных">
+				<param name="Local" value="Документация для IT отдела\Подготовка сервера\Настройка подключения к базе данных.html">
+				</OBJECT>
+		</UL>
+		<LI> <OBJECT type="text/sitemap">
+			<param name="Name" value="Добавление аккаунтов администраторов">
+			<param name="Local" value="Документация для IT отдела\Добавление аккаунтов администраторов.html">
+			</OBJECT>
 	</UL>
 </UL>
 </BODY>
